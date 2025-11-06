@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sự Kiện: Nợ Kỹ Thuật - START-UP</title>
+    <link rel="stylesheet" href="css/level1.css">
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+    
+    <div class="game-container">
+        <div class="level-header">
+            <h1 class="level-title">⚠️ SỰ KIỆN: NỢ KỸ THUẬT</h1>
+            <div class="level-subtitle">Vấn đề từ quyết định trước đây</div>
+        </div>
+
+        <div class="stats-panel">
+            <div class="stat-item">
+                <div class="stat-icon">💰</div>
+                <div class="stat-info">
+                    <div class="stat-label">Vốn (Runway)</div>
+                    <div class="stat-value" id="runwayValue">24</div>
+                    <div class="stat-unit">tháng</div>
+                </div>
+                <div class="stat-bar-container">
+                    <div class="stat-bar" id="runwayBar" style="width: 100%"></div>
+                </div>
+            </div>
+
+            <div class="stat-item">
+                <div class="stat-icon">🔥</div>
+                <div class="stat-info">
+                    <div class="stat-label">Năng lượng (Morale)</div>
+                    <div class="stat-value" id="moraleValue">100</div>
+                    <div class="stat-unit">%</div>
+                </div>
+                <div class="stat-bar-container">
+                    <div class="stat-bar morale-bar" id="moraleBar" style="width: 100%"></div>
+                </div>
+            </div>
+
+            <div class="stat-item">
+                <div class="stat-icon">📈</div>
+                <div class="stat-info">
+                    <div class="stat-label">Tiến độ (Progress)</div>
+                    <div class="stat-value" id="progressValue">0</div>
+                    <div class="stat-unit">%</div>
+                </div>
+                <div class="stat-bar-container">
+                    <div class="stat-bar progress-bar" id="progressBar" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <div class="stat-item">
+                <div class="stat-icon">👁️</div>
+                <div class="stat-info">
+                    <div class="stat-label">Cảnh Giác (Awareness)</div>
+                    <div class="stat-value" id="awarenessValue">0</div>
+                    <div class="stat-unit">%</div>
+                </div>
+                <div class="stat-bar-container">
+                    <div class="stat-bar awareness-bar" id="awarenessBar" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="survival-panel">
+            <div class="survival-label">Điểm Tồn Tại</div>
+            <div class="survival-bar-container">
+                <div class="survival-bar" id="survivalBar" style="width: 100%"></div>
+            </div>
+            <div class="survival-value" id="survivalValue">100</div>
+        </div>
+
+        <div class="special-stats">
+            <div class="special-stat">
+                <span class="special-label">Điểm Hắc Ám:</span>
+                <span class="special-value" id="darkChoicesValue">0</span>
+            </div>
+            <div class="special-stat">
+                <span class="special-label">Nợ Kỹ Thuật:</span>
+                <span class="special-value" id="technicalDebtValue">Có</span>
+            </div>
+        </div>
+
+        <div class="content-area">
+            <div class="event-container" id="eventContainer">
+                <div class="event-title" id="eventTitle">Nợ Kỹ Thuật Đã Bùng Nổ</div>
+                <div class="event-description" id="eventDescription">
+                    Sản phẩm ra mắt nhanh đã để lại những vấn đề kỹ thuật nghiêm trọng. Bạn phải đối mặt với hậu quả. Bạn sẽ làm gì?
+                </div>
+            </div>
+
+            <div class="choices-container" id="choicesContainer"></div>
+        </div>
+
+        <div class="log-container">
+            <div class="log-title">Nhật Ký</div>
+            <div class="log-content" id="logContent">
+                <div class="log-entry">Nợ kỹ thuật đã bùng nổ...</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="gameOverOverlay">
+        <div class="overlay-content">
+            <h2 class="overlay-title" id="overlayTitle">GAME OVER</h2>
+            <div class="overlay-message" id="overlayMessage"></div>
+            <div class="overlay-buttons">
+                <button class="overlay-btn" id="retryBtn">Thử Lại</button>
+                <button class="overlay-btn" id="menuBtn">Về Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/game-engine.js"></script>
+    <script src="js/event-technical-debt.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+

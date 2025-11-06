@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cấp 1: Vốn - START-UP</title>
+    <link rel="stylesheet" href="css/level1.css">
+</head>
+<body>
+    <!-- Background Canvas -->
+    <canvas id="gameCanvas"></canvas>
+    
+    <!-- Game UI Container -->
+    <div class="game-container">
+        <!-- Header: Level Info -->
+        <div class="level-header">
+            <h1 class="level-title">CẤP 1: VỐN</h1>
+            <div class="level-subtitle">Tìm kiếm nguồn tài chính để bắt đầu</div>
+        </div>
+
+        <!-- Stats Panel: 4 Chỉ Số Chính -->
+        <div class="stats-panel">
+            <div class="stat-item">
+                <div class="stat-icon">💰</div>
+                <div class="stat-info">
+                    <div class="stat-label">Vốn (Runway)</div>
+                    <div class="stat-value" id="runwayValue">24</div>
+                    <div class="stat-unit">tháng</div>
+                </div>
+                <div class="stat-bar-container">
+                    <div class="stat-bar" id="runwayBar" style="width: 100%"></div>
+                </div>
+            </div>
+
+            <div class="stat-item">
+                <div class="stat-icon">🔥</div>
+                <div class="stat-info">
+                    <div class="stat-label">Năng lượng (Morale)</div>
+                    <div class="stat-value" id="moraleValue">100</div>
+                    <div class="stat-unit">%</div>
+                </div>
+                <div class="stat-bar-container">
+                    <div class="stat-bar morale-bar" id="moraleBar" style="width: 100%"></div>
+                </div>
+            </div>
+
+            <div class="stat-item">
+                <div class="stat-icon">📈</div>
+                <div class="stat-info">
+                    <div class="stat-label">Tiến độ (Progress)</div>
+                    <div class="stat-value" id="progressValue">0</div>
+                    <div class="stat-unit">%</div>
+                </div>
+                <div class="stat-bar-container">
+                    <div class="stat-bar progress-bar" id="progressBar" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <div class="stat-item">
+                <div class="stat-icon">👁️</div>
+                <div class="stat-info">
+                    <div class="stat-label">Cảnh Giác (Awareness)</div>
+                    <div class="stat-value" id="awarenessValue">0</div>
+                    <div class="stat-unit">%</div>
+                </div>
+                <div class="stat-bar-container">
+                    <div class="stat-bar awareness-bar" id="awarenessBar" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Survival Points Bar -->
+        <div class="survival-panel">
+            <div class="survival-label">Điểm Tồn Tại</div>
+            <div class="survival-bar-container">
+                <div class="survival-bar" id="survivalBar" style="width: 100%"></div>
+            </div>
+            <div class="survival-value" id="survivalValue">100</div>
+        </div>
+
+        <!-- Special Stats (Hidden initially, shown on hover or when relevant) -->
+        <div class="special-stats">
+            <div class="special-stat">
+                <span class="special-label">Điểm Hắc Ám:</span>
+                <span class="special-value" id="darkChoicesValue">0</span>
+            </div>
+            <div class="special-stat">
+                <span class="special-label">Nợ Kỹ Thuật:</span>
+                <span class="special-value" id="technicalDebtValue">Không</span>
+            </div>
+        </div>
+
+        <!-- Main Content Area: Decision/Event -->
+        <div class="content-area">
+            <div class="event-container" id="eventContainer">
+                <div class="event-title" id="eventTitle">Bắt Đầu Hành Trình</div>
+                <div class="event-description" id="eventDescription">
+                    Bạn đã có ý tưởng, nhưng ý tưởng không thể tự nuôi sống chính nó. 
+                    Bạn cần vốn để bắt đầu. Có nhiều con đường, nhưng mỗi con đường đều có giá của nó...
+                </div>
+            </div>
+
+            <!-- Choices Container -->
+            <div class="choices-container" id="choicesContainer">
+                <!-- Choices will be dynamically generated -->
+            </div>
+        </div>
+
+        <!-- Action Log -->
+        <div class="log-container">
+            <div class="log-title">Nhật Ký</div>
+            <div class="log-content" id="logContent">
+                <div class="log-entry">Bắt đầu hành trình startup...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div class="overlay" id="gameOverOverlay">
+        <div class="overlay-content">
+            <h2 class="overlay-title" id="overlayTitle">GAME OVER</h2>
+            <div class="overlay-message" id="overlayMessage"></div>
+            <div class="overlay-buttons">
+                <button class="overlay-btn" id="retryBtn">Thử Lại</button>
+                <button class="overlay-btn" id="menuBtn">Về Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Victory Overlay -->
+    <div class="overlay" id="victoryOverlay">
+        <div class="overlay-content">
+            <h2 class="overlay-title victory-title">HOÀN THÀNH CẤP 1!</h2>
+            <div class="overlay-message">Bạn đã tìm được nguồn vốn ban đầu. Hành trình tiếp tục...</div>
+            <div class="overlay-buttons">
+                <button class="overlay-btn" id="nextLevelBtn">Tiếp Tục →</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/game-engine.js"></script>
+    <script src="js/level1.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+

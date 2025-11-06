@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>START-UP - Lối Thoát Mê Cung</title>
+    <link rel="stylesheet" href="css/main-menu.css">
+</head>
+<body>
+    <!-- Background Canvas for Cyberpunk City -->
+    <canvas id="cityCanvas"></canvas>
+    
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Game Logo -->
+        <div class="logo-container">
+            <h1 class="logo-main flicker">START-UP</h1>
+            <h2 class="logo-subtitle">⚔️ DANCING IN THE DARK⚔️</h2>
+        </div>
+
+        <!-- Story Text -->
+        <div class="story-container">
+            <div class="story-quote">
+                <p class="quote-text">"Họ nói thị trường là tự do... Nhưng đó là lời nói dối."</p>
+            </div>
+            <div class="story-text">
+                <p>Bạn mang trong mình một ý tưởng triệu đô, một khát vọng thay đổi thế giới. Nhưng phía trước bạn không phải là con đường trải hoa hồng.</p>
+                <p>Đó là một <span class="highlight">MÊ CUNG</span> — nơi mọi ngã rẽ đều bị <span class="giant">GÃ KHỔNG LỒ</span> giám sát. Hắn kiểm soát dòng tiền. Hắn thao túng luật chơi. Hắn đợi bạn sai lầm.</p>
+                <p class="question">Bạn có đủ bản lĩnh để tìm ra lối thoát duy nhất?</p>
+            </div>
+        </div>
+
+        <!-- Button Area -->
+        <div class="button-container">
+            <button class="btn-main" id="startBtn">
+                <span class="btn-icon">🚀</span>
+                <span class="btn-text">KÍCH HOẠT START-UP</span>
+            </button>
+            
+            <div class="btn-secondary-group">
+                <button class="btn-secondary" id="optionsBtn">
+                    <span class="btn-icon">⚙️</span>
+                    <span class="btn-text">Tùy Chọn</span>
+                </button>
+                <button class="btn-secondary" id="leaderboardBtn">
+                    <span class="btn-icon">🏆</span>
+                    <span class="btn-text">Bảng Xếp Hạng</span>
+                </button>
+                <button class="btn-secondary" id="guideBtn">
+                    <span class="btn-icon">📖</span>
+                    <span class="btn-text">Hướng Dẫn Sinh Tồn</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Transition Overlay -->
+    <div class="transition-overlay" id="transitionOverlay">
+        <div class="player-dot" id="playerDot"></div>
+        <div class="giant-tower" id="giantTower"></div>
+    </div>
+
+    <!-- Audio -->
+    <audio id="bgMusic" loop>
+        <!-- Background music will be added here -->
+    </audio>
+
+    <script src="js/main-menu.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
