@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Red Line - Ván Cờ Tàn</title>
+    <link rel="stylesheet" href="css/level4_5.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Courier+Prime:wght@400;700&family=Orbitron:wght@700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="game-container">
+        <!-- Endgame Cinematic Container -->
+        <div class="endgame-container">
+            <!-- Scene 1: The Decision -->
+            <div id="seq-step-1" class="sequence-step hidden">
+                <p class="story-text">Bạn cầm bút lên. Không run rẩy. Một cái nhìn thẳng vào camera an ninh.</p>
+                <p class="story-text">Một nét ký dứt khoát. Vali tiền đóng lại.</p>
+            </div>
+
+            <!-- Scene 2: The Timeline -->
+            <div id="seq-step-2" class="sequence-step hidden">
+                <div class="timeline-marker">NĂM THỨ NHẤT</div>
+                <p class="story-text">Con gái phẫu thuật thành công. Vợ nghi ngờ, nhưng bạn chỉ nói: <span
+                        class="whisper">"Tin anh thêm 1 năm nữa."</span></p>
+
+                <div class="timeline-marker">NĂM THỨ HAI</div>
+                <p class="story-text">Chung cư X hoàn thiện phần thô. Ngày khánh thành đã định.</p>
+            </div>
+
+            <!-- Scene 3: The Flashback -->
+            <div id="seq-step-3" class="sequence-step hidden">
+                <div class="flashback-zone">
+                    <h4 class="flashback-title">📁 TRÍCH XUẤT KÝ ỨC: 2 NĂM TRƯỚC</h4>
+                    <ul class="evidence-list detailed-list">
+                        <li>
+                            <span class="highlight-red">Tại văn phòng 2 năm trước:</span> <br>
+                            Khi bạn ký, bạn đã cố tình dùng cây bút mực đỏ (sai quy tắc hành chính). Điều này khiến văn
+                            bản có giá trị pháp lý "có vấn đề" nếu bị soi kỹ.
+                        </li>
+                        <li>
+                            <span class="highlight-green">Chiếc vali:</span> <br>
+                            Bạn không tiêu một đồng nào ngoài tiền viện phí. Số còn lại bạn giữ nguyên trong két sắt làm
+                            vật chứng.
+                        </li>
+                        <li>
+                            <span class="highlight-glitch">Hồ sơ:</span> <br>
+                            Bạn đã âm thầm sao chép bản vẽ gốc (sai phạm) và ghi âm cuộc gọi chỉ đạo của Sếp + cuộc ngã
+                            giá của Tập đoàn X.
+                        </li>
+                        <li>
+                            <span class="highlight-planning">Hành động:</span> <br>
+                            Bạn đợi đến ngày dự án hoàn thành (tiền của Tập đoàn đã đổ vào hết) mới tung đòn chí mạng để
+                            họ không kịp tẩu tán tài sản và khắc phục hậu quả.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Scene 4: The Climax -->
+            <div id="seq-step-4" class="sequence-step hidden">
+                <p class="story-text">Hiện tại: Bạn bước lên bục. Sếp cũ mặt cắt không còn giọt máu. Bạn đưa ra chiếc
+                    USB và tập hồ sơ.</p>
+
+                <div class="climax-speech">
+                    "Tôi, Nguyễn Văn Minh, xin đầu thú về hành vi nhận hối lộ 2 tỷ đồng cách đây 2 năm. <br>
+                    Và đây là toàn bộ bằng chứng về đường dây chạy án PCCC của Tập đoàn X."
+                </div>
+
+                <div class="chaos-siren hidden" id="siren-alert">
+                    🚨 TIẾNG CÒI HÚ VANG LÊN. CẢ HỘI TRƯỜNG HỖN LOẠN. 🚨
+                </div>
+            </div>
+
+            <!-- Scene 5: Conclusion & Outcome -->
+            <div id="seq-step-5" class="sequence-step hidden">
+
+                <!-- Detailed Outcome Text -->
+                <div class="outcome-section">
+                    <h3 class="outcome-header">📜 KẾT QUẢ: "SỰ HY SINH CẦN THIẾT"</h3>
+                    <ul class="outcome-list">
+                        <li>
+                            <strong>Tập đoàn X:</strong> Sụp đổ hoàn toàn. Cổ phiếu về 0. Dự án bị phong tỏa, ngăn chặn
+                            thảm họa cháy nổ trong tương lai.
+                        </li>
+                        <li>
+                            <strong>Cặp vợ chồng trẻ:</strong> Được nhà nước hỗ trợ đòi lại tiền cọc từ tài sản bị tịch
+                            thu. Họ thoát chết.
+                        </li>
+                        <li>
+                            <strong>Con gái bạn:</strong> Đã khỏe mạnh hoàn toàn.
+                        </li>
+                        <li>
+                            <strong>Số phận của bạn:</strong> Bạn bị kết án 5 năm tù vì tội nhận hối lộ (được giảm án
+                            nhờ tự thú và lập công lớn). Tài sản bị tịch thu, nhưng lương tâm bạn thanh thản.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Prison Cinematic -->
+                <div class="prison-overlay">
+                    <div class="prison-glass"></div>
+                    <div class="daughter-hand"></div>
+                    <div class="final-text">
+                        "Đôi khi, để tiêu diệt quỷ dữ, bạn phải dám bước vào địa ngục.<br>
+                        Nhưng đừng bao giờ quên đường về."
+                    </div>
+                </div>
+
+                <div class="achievement-grandmaster" id="achievement">
+                    <div class="achievement-icon">♟️</div>
+                    <div class="achievement-text">
+                        <h3>NGƯỜI CHƠI CỜ</h3>
+                        <p>THÀNH TỰU MỞ KHÓA: THE GRANDMASTER</p>
+                    </div>
+                </div>
+
+                <button onclick="location.href='main-menu.html'" class="btn-return-menu">KẾT THÚC</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/level4_5.js"></script>
+</body>
+
+</html>

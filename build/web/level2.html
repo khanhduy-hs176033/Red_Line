@@ -1,137 +1,125 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cấp 2: Chiến Lược Bán Hàng - START-UP</title>
-    <link rel="stylesheet" href="css/level1.css">
+    <title>The Red Line - Level 2: Cơ Hội</title>
+    <link rel="stylesheet" href="css/level2.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto+Mono:wght@400;700&family=Patrick+Hand&family=Merriweather:ital,wght@1,300&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-    <canvas id="gameCanvas"></canvas>
-    
     <div class="game-container">
-        <div class="level-header">
-            <h1 class="level-title">CẤP 2: CHIẾN LƯỢC BÁN HÀNG</h1>
-            <div class="level-subtitle">Chọn cách tiếp cận thị trường</div>
-        </div>
+        <!-- Background Overlay for Tunnel Vision -->
+        <div class="tunnel-vision-overlay"></div>
 
-        <div class="stats-panel">
-            <div class="stat-item">
-                <div class="stat-icon">💰</div>
-                <div class="stat-info">
-                    <div class="stat-label">Vốn (Runway)</div>
-                    <div class="stat-value" id="runwayValue">24</div>
-                    <div class="stat-unit">tháng</div>
-                </div>
-                <div class="stat-bar-container">
-                    <div class="stat-bar" id="runwayBar" style="width: 100%"></div>
-                </div>
+        <!-- HUD / Status Bar -->
+        <header class="hud">
+            <div class="status-item">
+                <span class="label">TÀI KHOẢN:</span>
+                <span class="value money">15.000.000 VNĐ</span>
             </div>
-
-            <div class="stat-item">
-                <div class="stat-icon">🔥</div>
-                <div class="stat-info">
-                    <div class="stat-label">Năng lượng (Morale)</div>
-                    <div class="stat-value" id="moraleValue">100</div>
-                    <div class="stat-unit">%</div>
-                </div>
-                <div class="stat-bar-container">
-                    <div class="stat-bar morale-bar" id="moraleBar" style="width: 100%"></div>
-                </div>
+            <div class="status-item">
+                <span class="label">THỜI GIAN:</span>
+                <span class="value time critical">7 NGÀY</span>
             </div>
+        </header>
 
-            <div class="stat-item">
-                <div class="stat-icon">📈</div>
-                <div class="stat-info">
-                    <div class="stat-label">Tiến độ (Progress)</div>
-                    <div class="stat-value" id="progressValue">0</div>
-                    <div class="stat-unit">%</div>
-                </div>
-                <div class="stat-bar-container">
-                    <div class="stat-bar progress-bar" id="progressBar" style="width: 0%"></div>
-                </div>
-            </div>
+        <!-- Narrative Section -->
+        <section class="narrative-box">
+            <h1 class="chapter-title">NGÃ RẼ 2: CƠ HỘI</h1>
+            <p class="story-text">
+                “Trong lúc tuyệt vọng nhất, Đại diện Tập đoàn X bước vào phòng bạn. Hắn đặt chiếc vali lên bàn.”
+                <br>
+                <span class="offer-highlight">ĐỀ NGHỊ: 2 TỶ TIỀN MẶT = 1 CHỮ KÝ DUYỆT PCCC</span>
+            </p>
+        </section>
 
-            <div class="stat-item">
-                <div class="stat-icon">👁️</div>
-                <div class="stat-info">
-                    <div class="stat-label">Cảnh Giác (Awareness)</div>
-                    <div class="stat-value" id="awarenessValue">0</div>
-                    <div class="stat-unit">%</div>
+        <!-- Central Visual: The Briefcase -->
+        <div class="briefcase-scene">
+            <div class="briefcase-container" id="briefcase">
+                <div class="briefcase-body">
+                    <span class="money-glow"></span>
                 </div>
-                <div class="stat-bar-container">
-                    <div class="stat-bar awareness-bar" id="awarenessBar" style="width: 0%"></div>
+                <!-- Newspaper Cover (Hidden initially or partially covering) -->
+                <div class="newspaper-cover hidden" id="newspaper">
+                    <div class="newspaper-content">
+                        <h3>NHẬT BÁO</h3>
+                        <p>VỤ CHÁY CHUNG CƯ...</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="survival-panel">
-            <div class="survival-label">Điểm Tồn Tại</div>
-            <div class="survival-bar-container">
-                <div class="survival-bar" id="survivalBar" style="width: 100%"></div>
+        <!-- Choices Section -->
+        <section class="choices-container">
+            <!-- Choice 1: Refuse -->
+            <div class="choice-btn" id="btn-refuse">
+                🚫 TỪ CHỐI THẲNG THỪNG
+                <span class="sub-text">"Mời anh ra khỏi phòng tôi."</span>
             </div>
-            <div class="survival-value" id="survivalValue">100</div>
+
+            <!-- Choice 2: Consider -->
+            <div class="choice-btn choice-consider" id="btn-consider">
+                👀 XEM XÉT HỒ SƠ
+                <span class="sub-text">Mở hé chiếc vali...</span>
+            </div>
+        </section>
+    </div>
+
+    <!-- GAME OVER -->
+    <div id="overlay-gameover" class="overlay hidden">
+        <div class="terminal-screen">
+            <p>> OFFER_REJECTED</p>
+            <p>> FUNDING_FAILED</p>
+            <h1 class="game-over-text">GAME OVER</h1>
+            <p class="sub-text">
+                Bạn đã giữ được sự trong sạch.<br>
+                Nhưng 7 ngày sau, bệnh viện ngừng điều trị vì thiếu viện phí.<br>
+                <strong>Con gái bạn đã không qua khỏi.</strong>
+            </p>
+            <button onclick="location.reload()">THỬ LẠI</button>
         </div>
+    </div>
 
-        <div class="special-stats">
-            <div class="special-stat">
-                <span class="special-label">Điểm Hắc Ám:</span>
-                <span class="special-value" id="darkChoicesValue">0</span>
-            </div>
-            <div class="special-stat">
-                <span class="special-label">Nợ Kỹ Thuật:</span>
-                <span class="special-value" id="technicalDebtValue">Không</span>
-            </div>
-        </div>
+    <!-- INNOCENT EVENT -->
+    <div id="overlay-innocent" class="overlay hidden">
+        <!-- Guilt Vision Vignette -->
+        <div class="guilt-overlay"></div>
 
-        <div class="content-area">
-            <div class="event-container" id="eventContainer">
-                <div class="event-title" id="eventTitle">Chiến Lược Bán Hàng</div>
-                <div class="event-description" id="eventDescription">
-                    Sản phẩm đã sẵn sàng. Bây giờ bạn cần quyết định cách tiếp cận thị trường...
-                </div>
+        <div class="innocent-scene">
+            <!-- Character Visual with Eyes -->
+            <div class="character-wrapper">
+                <div class="couple-visual">👥</div>
+                <!-- Abstract representation of the eyes for the animation hook -->
+                <div class="wife-eyes">👀</div>
             </div>
 
-            <div class="choices-container" id="choicesContainer"></div>
-        </div>
+            <div class="speech-bubble" id="speech-bubble">
+                <p class="innocent-text">
+                    "Chào chú Minh! Vợ chồng cháu gom góp 10 năm mới mua được căn hộ ở đây.
+                    Thấy chú duyệt dự án, cháu mừng quá. <br>
+                    <strong>Có chú, cháu tin là tòa nhà <span class="keyword keyword-safe">tuyệt đối an
+                            toàn</span>.</strong>"
+                </p>
+                <p class="wife-text">
+                    (Người vợ bụng bầu cười): "Con cháu sẽ không phải lo <span class="keyword keyword-fire">cháy
+                        nổ</span> như ở khu trọ cũ."
+                </p>
+            </div>
 
-        <div class="log-container">
-            <div class="log-title">Nhật Ký</div>
-            <div class="log-content" id="logContent">
-                <div class="log-entry">Bắt đầu chiến lược bán hàng...</div>
+            <div class="interaction-area">
+                <p class="internal-monologue">Chiếc vali tiền vẫn nằm trên bàn, chỉ được che tạm bằng tờ báo.</p>
+                <p class="challenge-text">Bạn có dám nhìn vào mắt họ và nói dối?</p>
+                <button class="btn-proceed btn-lie" id="btn-goto-level3">NÓI DỐI VÀ ĐI TIẾP</button>
             </div>
         </div>
     </div>
 
-    <div class="overlay" id="gameOverOverlay">
-        <div class="overlay-content">
-            <h2 class="overlay-title" id="overlayTitle">GAME OVER</h2>
-            <div class="overlay-message" id="overlayMessage"></div>
-            <div class="overlay-buttons">
-                <button class="overlay-btn" id="retryBtn">Thử Lại</button>
-                <button class="overlay-btn" id="menuBtn">Về Menu</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="overlay" id="victoryOverlay">
-        <div class="overlay-content">
-            <h2 class="overlay-title victory-title">HOÀN THÀNH CẤP 2!</h2>
-            <div class="overlay-message">Đã chọn chiến lược bán hàng. Tiếp tục hành trình...</div>
-            <div class="overlay-buttons">
-                <button class="overlay-btn" id="nextLevelBtn">Tiếp Tục →</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="js/game-engine.js"></script>
     <script src="js/level2.js"></script>
 </body>
+
 </html>
-
-
-
-
-
-
-

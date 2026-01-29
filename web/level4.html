@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Red Line - Level 4: Đối Diện</title>
+    <link rel="stylesheet" href="css/level4.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@400;700&family=Courier+Prime&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Marionette Strings Overlay -->
+    <div class="puppet-strings"></div>
+
+    <div class="game-container">
+        <!-- Event 4: Boss Call Overlay (Starts immediately or transitioning from L3) -->
+        <div id="overlay-boss" class="overlay">
+            <div class="phone-screen bg-boss">
+                <div class="caller-id">
+                    <span class="icon">👔</span>
+                    <span class="name">SẾP TỔNG</span>
+                </div>
+                <div class="call-message">
+                    <p>"Anh thấy chú ký rồi. Tốt.</p>
+                    <p>À, bên Tập đoàn X họ quý chú lắm, họ đã chuyển hồ sơ bệnh án và tiền cọc cho con chú sang
+                        Singapore từ trưa nay rồi."</p>
+                </div>
+                <div class="revelation-text">
+                    <p class="horror-truth">HỌ ĐÃ "GIÚP" BẠN TRƯỚC KHI BẠN ĐỒNG Ý.</p>
+                    <p class="horror-sub">BẠN LÀ CON RỐI.</p>
+                </div>
+                <button class="btn-proceed" id="btn-go-home">VỀ NHÀ</button>
+            </div>
+        </div>
+
+        <!-- Scene: Home Confrontation -->
+        <div id="scene-home" class="scene hidden">
+            <!-- Dirty Money Notification -->
+            <div class="dirty-money-notification">
+                <span>🔔 BANK: +2,000,000,000 VND</span>
+                <span class="warning-tag">WARN: SUSPICIOUS_TX</span>
+            </div>
+
+            <!-- Wife Dialogue -->
+            <div class="dialogue-box">
+                <p class="wife-name">VỢ:</p>
+                <div class="wife-dialogue" id="wife-text">
+                    <!-- Text inserted via JS for typing effect -->
+                </div>
+            </div>
+
+            <!-- Final Choices -->
+            <div class="choices-container">
+                <button class="choice-btn btn-lie" id="btn-lie">
+                    🤥 NÓI DỐI ĐẾN CÙNG
+                    <span class="sub-text">"Em đừng hỏi nhiều. Anh lo được."</span>
+                </button>
+                <button class="choice-btn btn-confess" id="btn-confess">
+                    😭 THÚ NHẬN SỰ THẬT
+                    <span class="sub-text">"Anh xin lỗi... Anh không còn cách nào khác."</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Ending 1: Fake Hero -->
+        <div id="ending-fake" class="ending-screen hidden ending-fake-hero">
+            <h1 class="ending-title">KẾT THÚC: NGƯỜI HÙNG GIẢ TẠO</h1>
+            <p class="ending-desc">
+                Con gái được cứu. Gia đình êm ấm bên ngoài.<br>
+                Nhưng vợ bạn luôn nhìn bạn với ánh mắt nghi ngờ.<br>
+                Bạn sống trong lo âu vĩnh viễn.
+            </p>
+            <div class="credits">
+                <p>KỊCH BẢN: THE RED LINE</p>
+                <p class="glitch-text">ĐẠO ĐỨC: 404 NOT FOUND</p>
+                <button onclick="location.href='main-menu.html'">CHƠI LẠI</button>
+            </div>
+        </div>
+
+        <!-- Ending 2: Conscience Verdict -->
+        <div id="ending-conscience" class="ending-screen hidden ending-conscience">
+            <h1 class="ending-title">KẾT THÚC: BẢN ÁN LƯƠNG TÂM</h1>
+            <p class="ending-desc">
+                Vợ bạn suy sụp nhưng đồng ý dùng tiền cứu con trước.<br>
+                Sau đó, cô ấy bắt bạn phải đi đầu thú.<br>
+                Bạn mất tự do, nhưng tìm lại được chính mình.
+            </p>
+            <div class="credits">
+                <p>KỊCH BẢN: THE RED LINE</p>
+                <p>ĐẠO ĐỨC: CHẤP NHẬN THƯƠNG ĐAU</p>
+                <button onclick="location.href='main-menu.html'">CHƠI LẠI</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/level4.js"></script>
+</body>
+
+</html>

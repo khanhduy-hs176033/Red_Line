@@ -1,0 +1,490 @@
+/* Base Styles */
+body {
+    background-color: #1a1a2e;
+    color: #e0e0e0;
+    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 1s ease;
+}
+
+.game-container {
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+/* Marionette Effect: Trapped */
+body.trapped {
+    animation: cinema-close 3s forwards ease-in-out;
+}
+
+@keyframes cinema-close {
+    0% {
+        padding: 0;
+        background-color: #1a1a2e;
+    }
+
+    100% {
+        padding: 5% 0;
+        /* Letterbox squeeze */
+        background-color: #000;
+        box-shadow: inset 0 0 100px #000;
+    }
+}
+
+.puppet-strings {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    /* Drawing faint strings */
+    background:
+        linear-gradient(to bottom right, transparent 49.8%, rgba(255, 255, 255, 0.1) 50%, transparent 50.2%),
+        linear-gradient(to bottom left, transparent 49.8%, rgba(255, 255, 255, 0.1) 50%, transparent 50.2%);
+    z-index: 5;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+body.trapped .puppet-strings {
+    opacity: 1;
+}
+
+/* Overlays & Scenes */
+.overlay,
+.scene,
+.ending-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    /* Container handles bg mostly */
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Event 4: Boss Call */
+.phone-screen {
+    background: #111;
+    border: 2px solid #333;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 500px;
+    text-align: center;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+}
+
+.caller-id {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #fff;
+}
+
+.call-message {
+    text-align: left;
+    margin-bottom: 2rem;
+    color: #ccc;
+    font-family: sans-serif;
+}
+
+.revelation-text {
+    margin: 2rem 0;
+}
+
+.horror-truth {
+    color: #ff0000;
+    font-weight: bold;
+    font-size: 1rem;
+    animation: pulse-red 1s infinite;
+}
+
+.horror-sub {
+    color: #555;
+    font-size: 2rem;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 5px;
+    margin-top: 10px;
+}
+
+.btn-proceed {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-family: 'Orbitron', sans-serif;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* Scene: Home */
+.dirty-money-notification {
+    background: #000;
+    border: 1px solid #ff0000;
+    color: #00ff00;
+    padding: 15px;
+    box-shadow: 0 0 15px #ff0000;
+    font-weight: bold;
+    transform: rotate(-1deg);
+    margin-bottom: 3rem;
+    font-family: 'Courier Prime', monospace;
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+}
+
+.warning-tag {
+    color: #ff0000;
+    animation: blink 0.5s infinite;
+}
+
+.dialogue-box {
+    width: 60%;
+    margin-bottom: 3rem;
+    text-align: left;
+}
+
+.wife-name {
+    color: #aaa;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.wife-dialogue {
+    font-family: 'Courier Prime', monospace;
+    color: #fff;
+    border-left: 3px solid #fff;
+    padding-left: 15px;
+    font-size: 1.2rem;
+    min-height: 80px;
+    /* Typing handled via JS mostly for smooth multi-line */
+}
+
+/* Choices */
+.choices-container {
+    display: flex;
+    gap: 2rem;
+}
+
+.choice-btn {
+    padding: 1.5rem;
+    border: 1px solid #555;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    width: 300px;
+    transition: all 0.3s;
+}
+
+.choice-btn:hover {
+    transform: translateY(-5px);
+}
+
+.btn-lie:hover {
+    border-color: #ffd700;
+    color: #ffd700;
+}
+
+.btn-confess:hover {
+    border-color: #fff;
+    background: #fff;
+    color: #000;
+}
+
+.sub-text {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    font-family: 'Roboto Mono', monospace;
+    color: #888;
+}
+
+/* Ending 1: Fake Hero */
+.ending-fake-hero {
+    background: linear-gradient(135deg, #1a1a1a, #4a4a4a);
+    border: 4px solid #ffd700;
+    color: #ffd700;
+    padding: 3rem;
+    width: 80%;
+    height: 80%;
+    text-align: center;
+    box-shadow: 0 0 100px rgba(255, 215, 0, 0.2);
+    overflow: hidden;
+}
+
+.ending-fake-hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)" opacity="0.4"/></svg>');
+    opacity: 0.15;
+    pointer-events: none;
+    animation: noise-move 0.5s infinite steps(5);
+}
+
+.glitch-text {
+    animation: glitch 1s infinite;
+    color: red;
+    font-weight: bold;
+}
+
+/* Ending 2: Conscience Verdict */
+.ending-conscience {
+    background-color: #0f0f0f;
+    color: #bbb;
+    border: 1px solid #333;
+    text-align: center;
+    padding: 3rem;
+    width: 80%;
+    height: 80%;
+    /* Naked Truth Style */
+    box-shadow: none;
+    text-shadow: none;
+}
+
+.ending-conscience::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    width: 200px;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.05), transparent);
+    transform: translateX(-50%) rotate(20deg);
+    pointer-events: none;
+}
+
+.ending-title {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.ending-desc {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+}
+
+.credits {
+    margin-top: auto;
+    border-top: 1px solid #333;
+    padding-top: 1rem;
+    width: 100%;
+}
+
+/* Animations */
+@keyframes pulse-red {
+    0% {
+        color: #500;
+    }
+
+    50% {
+        color: #f00;
+    }
+
+    100% {
+        color: #500;
+    }
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes noise-move {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(10px, 10px);
+    }
+}
+
+@keyframes glitch {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    20% {
+        transform: translate(-2px, 2px);
+    }
+
+    40% {
+        transform: translate(-2px, -2px);
+    }
+
+    60% {
+        transform: translate(2px, 2px);
+    }
+
+    80% {
+        transform: translate(2px, -2px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* Màn hình đen tuyệt đối cho Epilogue */
+body.epilogue-mode {
+    background-color: #000000;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: none;
+    overflow: hidden;
+    padding: 0;
+    /* Reset any letterbox */
+    box-shadow: none;
+    animation: none;
+    /* Remove trapped animation */
+}
+
+#epilogue-container {
+    max-width: 800px;
+    text-align: center;
+    padding: 20px;
+    z-index: 9999;
+}
+
+/* Hiệu ứng chung cho text */
+.fade-in-text {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 1.6;
+}
+
+.fade-in-text.fade-out {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Styles riêng cho từng loại câu trong Epilogue */
+
+.time-stamp {
+    color: #666;
+    font-size: 1.5rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+.news-flash {
+    color: #ddd;
+    font-size: 1.5rem;
+    border-left: 4px solid #fff;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.tragedy {
+    color: #fff;
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+.cold-fact {
+    color: #aaa;
+    font-style: italic;
+    font-size: 1.2rem;
+}
+
+.final-stab {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.game-over-text-epilogue {
+    color: #ff0000;
+    font-size: 4rem;
+    font-weight: 900;
+    letter-spacing: 10px;
+    animation: glitch 0.5s infinite;
+}
+
+.moral-message {
+    color: #888;
+    font-size: 1rem;
+    font-style: italic;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    margin-top: 50px;
+    white-space: pre-wrap;
+}
+
+.btn-restart-epilogue {
+    margin-top: 5rem;
+    background: transparent;
+    border: 1px solid #333;
+    color: #555;
+    padding: 10px 30px;
+    font-family: 'Orbitron', sans-serif;
+    cursor: pointer;
+    /* We might need to enable cursor for this button specifically if body has cursor:none */
+    pointer-events: auto;
+}
+
+.btn-restart-epilogue:hover {
+    color: #fff;
+    border-color: #fff;
+}
+
+/* Override cursor none for button interaction if needed */
+.btn-restart-epilogue {
+    cursor: pointer !important;
+}

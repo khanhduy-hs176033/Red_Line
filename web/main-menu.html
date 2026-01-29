@@ -1,77 +1,149 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>START-UP - Lối Thoát Mê Cung</title>
+    <title>THE RED LINE - Lằn Ranh Đỏ</title>
     <link rel="stylesheet" href="css/main-menu.css">
 </head>
+
 <body>
-    <!-- Background Canvas for Cyberpunk City -->
-    <canvas id="cityCanvas"></canvas>
-    
-    <!-- Main Container -->
-    <div class="main-container">
-        <!-- Game Logo -->
-        <div class="logo-container">
-            <h1 class="logo-main flicker">START-UP</h1>
-            <h2 class="logo-subtitle">⚔️ DANCING IN THE DARK⚔️</h2>
+    <!-- Background Effect -->
+    <!-- SVG Filters for Displacement/Noise Effect -->
+    <svg style="position: absolute; width: 0; height: 0;">
+        <defs>
+            <!-- Noise Filter for Wavering Psychology Effect -->
+            <filter id="noise-filter" x="-20%" y="-20%" width="140%" height="140%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="3" result="noise" seed="0">
+                    <animate attributeName="seed" from="0" to="100" dur="0.5s" repeatCount="indefinite" />
+                </feTurbulence>
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+
+            <!-- Intense Noise Filter -->
+            <filter id="noise-intense" x="-30%" y="-30%" width="160%" height="160%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="4" result="noise" seed="0">
+                    <animate attributeName="seed" from="0" to="200" dur="0.3s" repeatCount="indefinite" />
+                </feTurbulence>
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="15" xChannelSelector="R"
+                    yChannelSelector="G" />
+            </filter>
+        </defs>
+    </svg>
+
+    <div class="game-wrapper">
+        <canvas id="cityCanvas"></canvas>
+        <div class="scanlines"></div>
+
+        <!-- Noise Overlay for Wavering Effect -->
+        <div class="noise-overlay" id="noiseOverlay"></div>
+
+        <!-- Main Container -->
+        <div class="main-container" id="mainContainer">
+            <header class="header-section">
+                <h1 class="moral-glitch" data-text="LẰN RANH ĐẠO ĐỨC">LẰN RANH ĐẠO ĐỨC</h1>
+                <div class="sub-title">Hồ sơ thẩm định: #2026-MINH</div>
+            </header>
+
+            <!-- Character Introduction -->
+            <div class="character-intro">
+                <div class="character-avatar">
+                    <div class="avatar-ring"></div>
+                    <span class="avatar-icon">👔</span>
+                </div>
+                <div class="character-info">
+                    <h3 class="character-name">NGUYỄN VĂN MINH</h3>
+                    <p class="character-title">Trưởng phòng Thẩm định Xây dựng</p>
+                    <div class="character-badge">
+                        <span class="badge-icon">⭐</span>
+                        <span class="badge-text">15 năm liêm khiết</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Story Container -->
+            <div class="story-container">
+                <div class="story-quote">
+                    <p class="quote-text">"Số phận đang đẩy con người ta đến những ngã rẽ không ai muốn chọn..."</p>
+                </div>
+
+                <div class="crisis-box">
+                    <div class="crisis-icon">🏥</div>
+                    <div class="crisis-content">
+                        <p class="crisis-title">TÌNH HUỐNG KHẨN CẤP</p>
+                        <p class="crisis-desc">Con gái bạn - <span class="highlight-name">Bé An (8 tuổi)</span> - cần
+                            <span class="highlight-critical">MỔ TIM GẤP</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="stats-container">
+                    <div class="stat-box cost">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-info">
+                            <span class="stat-label">Chi phí phẫu thuật</span>
+                            <span class="stat-value">2.000.000.000 ₫</span>
+                        </div>
+                    </div>
+                    <div class="stat-box current">
+                        <div class="stat-icon">💳</div>
+                        <div class="stat-info">
+                            <span class="stat-label">Số dư hiện tại</span>
+                            <span class="stat-value warning">50.000.000 ₫</span>
+                        </div>
+                    </div>
+                    <div class="stat-box deadline">
+                        <div class="stat-icon">⏰</div>
+                        <div class="stat-info">
+                            <span class="stat-label">Thời hạn còn lại</span>
+                            <span class="stat-value countdown">30 NGÀY</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dilemma-text">
+                    <p class="question-main">Bạn sẽ <span class="choice-good">giữ vững lằn ranh đạo đức</span>,</p>
+                    <p class="question-main">hay <span class="choice-bad">bước qua nó</span> để cứu người thân?</p>
+                </div>
+            </div>
+
+            <!-- Button Area -->
+            <div class="button-container">
+                <button class="btn-main btn-start pulse" id="startBtn">
+                    <span class="btn-icon">❤️</span>
+                    <span class="btn-text">BẮT ĐẦU CỨU CON</span>
+                </button>
+
+                <div class="btn-secondary-group">
+                    <button class="btn-secondary" id="optionsBtn">
+                        <span class="btn-icon">⚙️</span>
+                        <span class="btn-text">Tùy Chọn</span>
+                    </button>
+                    <button class="btn-secondary" id="leaderboardBtn">
+                        <span class="btn-icon">🏆</span>
+                        <span class="btn-text">Bảng Xếp Hạng</span>
+                    </button>
+                    <button class="btn-secondary" id="guideBtn">
+                        <span class="btn-icon">📖</span>
+                        <span class="btn-text">Hướng Dẫn</span>
+                    </button>
+                </div>
+            </div>
         </div>
 
-        <!-- Story Text -->
-        <div class="story-container">
-            <div class="story-quote">
-                <p class="quote-text">"Họ nói thị trường là tự do... Nhưng đó là lời nói dối."</p>
-            </div>
-            <div class="story-text">
-                <p>Bạn mang trong mình một ý tưởng triệu đô, một khát vọng thay đổi thế giới. Nhưng phía trước bạn không phải là con đường trải hoa hồng.</p>
-                <p>Đó là một <span class="highlight">MÊ CUNG</span> — nơi mọi ngã rẽ đều bị <span class="giant">GÃ KHỔNG LỒ</span> giám sát. Hắn kiểm soát dòng tiền. Hắn thao túng luật chơi. Hắn đợi bạn sai lầm.</p>
-                <p class="question">Bạn có đủ bản lĩnh để tìm ra lối thoát duy nhất?</p>
-            </div>
+        <!-- Transition Overlay -->
+        <div class="transition-overlay" id="transitionOverlay">
+            <div class="player-dot" id="playerDot"></div>
+            <div class="giant-tower" id="giantTower"></div>
         </div>
 
-        <!-- Button Area -->
-        <div class="button-container">
-            <button class="btn-main" id="startBtn">
-                <span class="btn-icon">🚀</span>
-                <span class="btn-text">KÍCH HOẠT START-UP</span>
-            </button>
-            
-            <div class="btn-secondary-group">
-                <button class="btn-secondary" id="optionsBtn">
-                    <span class="btn-icon">⚙️</span>
-                    <span class="btn-text">Tùy Chọn</span>
-                </button>
-                <button class="btn-secondary" id="leaderboardBtn">
-                    <span class="btn-icon">🏆</span>
-                    <span class="btn-text">Bảng Xếp Hạng</span>
-                </button>
-                <button class="btn-secondary" id="guideBtn">
-                    <span class="btn-icon">📖</span>
-                    <span class="btn-text">Hướng Dẫn Sinh Tồn</span>
-                </button>
-            </div>
-        </div>
-    </div>
+        <!-- Audio -->
+        <audio id="bgMusic" loop>
+            <!-- Background music will be added here -->
+        </audio>
 
-    <!-- Transition Overlay -->
-    <div class="transition-overlay" id="transitionOverlay">
-        <div class="player-dot" id="playerDot"></div>
-        <div class="giant-tower" id="giantTower"></div>
-    </div>
-
-    <!-- Audio -->
-    <audio id="bgMusic" loop>
-        <!-- Background music will be added here -->
-    </audio>
-
-    <script src="js/main-menu.js"></script>
+        <script src="js/main-menu.js"></script>
 </body>
+
 </html>
-
-
-
-
-
-
-

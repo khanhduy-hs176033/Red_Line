@@ -1,0 +1,294 @@
+/* Base Styles */
+body {
+    background-color: #050505;
+    color: #e0e0e0;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.guide-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Header */
+.guide-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.main-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    color: #ff3333;
+    text-transform: uppercase;
+    margin: 0;
+    text-shadow: 0 0 20px rgba(255, 51, 51, 0.5);
+    letter-spacing: 4px;
+}
+
+.subtitle {
+    font-family: 'Courier Prime', monospace;
+    font-size: 1.2rem;
+    color: #888;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* Sections */
+.guide-section {
+    margin-bottom: 60px;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    color: #ffd700;
+    font-size: 1.8rem;
+    border-bottom: 2px solid #555;
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* Mission Section */
+.highlight-money {
+    color: #00ff00;
+    font-weight: bold;
+}
+
+.highlight-integrity {
+    color: #00ffff;
+    font-weight: bold;
+}
+
+.highlight-danger {
+    color: #ff3333;
+    font-weight: bold;
+}
+
+.alert-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 0, 0, 0.1);
+    border-left: 4px solid #ff0000;
+    color: #ff9999;
+    font-size: 0.95rem;
+}
+
+/* HUD Section */
+.hud-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.hud-item {
+    background: #111;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #444;
+}
+
+.hud-item.full-width {
+    grid-column: span 2;
+}
+
+.hud-item h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: #ccc;
+}
+
+.color-white {
+    color: #fff;
+    font-weight: bold;
+}
+
+.color-red-blink {
+    color: #ff0000;
+    font-weight: bold;
+    animation: blink 1s infinite;
+}
+
+.note {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Mechanics Section */
+.mechanic-block {
+    margin-bottom: 30px;
+}
+
+.mechanic-block h3 {
+    color: #fff;
+    font-size: 1.3rem;
+}
+
+.mechanic-list,
+.clue-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.mechanic-list li {
+    background: #1a1a1a;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border-left: 3px solid #555;
+}
+
+.hidden-interaction {
+    border: 1px dashed #ffd700;
+    padding: 20px;
+    border-radius: 5px;
+    background: rgba(255, 215, 0, 0.05);
+}
+
+.important-hint {
+    color: #ff5722;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.clue-list li {
+    font-family: 'Courier Prime', monospace;
+    color: #aaa;
+    margin-bottom: 5px;
+}
+
+.philosophy {
+    font-style: italic;
+    color: #fff;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.1rem;
+}
+
+/* Endings Section */
+.endings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.ending-card {
+    background: #111;
+    border: 1px solid #333;
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.ending-card:hover {
+    transform: translateY(-5px);
+}
+
+.ending-card h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+}
+
+.normal {
+    border-color: #555;
+}
+
+.normal h3 {
+    color: #ccc;
+}
+
+.bad-tag {
+    color: #888;
+    font-size: 0.8rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.tragic {
+    border-color: #ff3333;
+    background: rgba(50, 0, 0, 0.2);
+}
+
+.tragic h3 {
+    color: #ff3333;
+}
+
+.tragic-tag {
+    color: #ff6666;
+    font-size: 0.8rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.hidden-end {
+    border-color: #ffd700;
+    background: linear-gradient(135deg, rgba(30, 30, 0, 0.3), transparent);
+}
+
+.hidden-end h3 {
+    color: #ffd700;
+}
+
+.hidden-tag {
+    color: #ffff99;
+    font-size: 0.8rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.game-over {
+    border-color: #444;
+    opacity: 0.7;
+}
+
+.game-over h3 {
+    color: #fff;
+}
+
+/* Footer */
+.guide-footer {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.btn-back {
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 15px 40px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-back:hover {
+    background: #fff;
+    color: #000;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .hud-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hud-item.full-width {
+        grid-column: auto;
+    }
+}

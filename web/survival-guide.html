@@ -1,427 +1,129 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hướng Dẫn Sinh Tồn - START-UP</title>
-    <link rel="stylesheet" href="css/main-menu.css">
-    <style>
-        /* Override main-menu.css để cho phép scroll */
-        html, body {
-            overflow: auto !important;
-            height: auto !important;
-            min-height: 100vh;
-            position: relative !important;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 50%, #16213e 100%);
-            background-attachment: fixed;
-            color: #fff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding: 20px;
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-        
-        .guide-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: rgba(26, 26, 46, 0.95);
-            padding: 40px;
-            border-radius: 10px;
-            border: 2px solid #00ffff;
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
-        }
-        
-        .guide-title {
-            color: #00ffff;
-            text-align: center;
-            font-size: 36px;
-            margin-bottom: 10px;
-            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-        }
-        
-        .guide-subtitle {
-            text-align: center;
-            color: #888;
-            margin-bottom: 30px;
-            font-size: 18px;
-        }
-        
-        h2 {
-            color: #00ffff;
-            border-bottom: 2px solid #00ffff;
-            padding-bottom: 10px;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            font-size: 28px;
-        }
-        
-        h3 {
-            color: #00ff88;
-            margin-top: 25px;
-            margin-bottom: 15px;
-            font-size: 20px;
-        }
-        
-        .stat-box {
-            background: rgba(0, 255, 255, 0.1);
-            border-left: 4px solid #00ffff;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 5px;
-        }
-        
-        .trap-box {
-            background: rgba(255, 68, 68, 0.2);
-            border-left: 4px solid #ff4444;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 5px;
-        }
-        
-        .tip-box {
-            background: rgba(255, 215, 0, 0.1);
-            border-left: 4px solid #ffd700;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 5px;
-        }
-        
-        .ending-box {
-            background: rgba(0, 255, 136, 0.1);
-            border-left: 4px solid #00ff88;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 5px;
-        }
-        
-        .ending-box.usurper {
-            background: rgba(255, 8, 68, 0.15);
-            border-left: 4px solid #ff0844;
-        }
-        
-        .ending-box.neutral {
-            background: rgba(170, 170, 170, 0.1);
-            border-left: 4px solid #aaaaaa;
-        }
-        
-        ul, ol {
-            margin: 10px 0;
-            padding-left: 25px;
-        }
-        
-        li {
-            margin: 8px 0;
-        }
-        
-        .emoji {
-            font-size: 1.2em;
-            margin-right: 5px;
-        }
-        
-        .btn-back {
-            display: block;
-            width: 200px;
-            margin: 30px auto 0;
-            padding: 12px;
-            background: transparent;
-            border: 2px solid #00ffff;
-            border-radius: 5px;
-            color: #00ffff;
-            font-size: 16px;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        
-        .btn-back:hover {
-            background: rgba(0, 255, 255, 0.1);
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
-        }
-        
-        table th, table td {
-            padding: 10px;
-            border: 1px solid rgba(0, 255, 255, 0.3);
-            text-align: left;
-        }
-        
-        table th {
-            background: rgba(0, 255, 255, 0.2);
-            color: #00ffff;
-        }
-        
-        .warning {
-            color: #ff4444;
-            font-weight: bold;
-        }
-        
-        .success {
-            color: #00ff88;
-            font-weight: bold;
-        }
-        
-        .ending-title {
-            font-size: 1.4em;
-            font-weight: bold;
-            color: #00ff88;
-            margin-bottom: 10px;
-        }
-        
-        .ending-title.usurper {
-            color: #ff0844;
-        }
-        
-        .ending-title.neutral {
-            color: #aaaaaa;
-        }
-        
-        .lesson-title {
-            font-size: 1.2em;
-            color: #ffd700;
-            margin-top: 15px;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        
-        .lesson-content {
-            font-style: italic;
-            color: #cccccc;
-            line-height: 1.8;
-            margin-bottom: 10px;
-        }
-        
-        .achievement {
-            display: inline-block;
-            background: rgba(255, 215, 0, 0.2);
-            padding: 5px 10px;
-            border-radius: 5px;
-            color: #ffd700;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-    </style>
+    <title>The Red Line - Hướng Dẫn Sinh Tồn</title>
+    <link rel="stylesheet" href="css/survival-guide.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&family=Courier+Prime:wght@400&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <div class="guide-container">
-        <h1 class="guide-title">📖 HƯỚNG DẪN SINH TỒN</h1>
-        <p class="guide-subtitle">START-UP: Lối Thoát Mê Cung</p>
-        
-        <h2>🎯 MỤC TIÊU CỦA GAME</h2>
-        <p>Bạn là một nhà khởi nghiệp đang cố gắng xây dựng startup của mình trong một thị trường bị thống trị bởi <strong>Gã Khổng Lồ (GĐQ)</strong>. Mục tiêu của bạn:</p>
-        <ul>
-            <li>✅ Đạt <strong>Progress 100%</strong> (hoàn thành startup) HOẶC <strong>Dominance ≥ 80%</strong> (trong Boss Battle)</li>
-            <li>✅ Giữ <strong>Vốn (Runway) > 0</strong></li>
-            <li>✅ Giữ <strong>Năng lượng (Morale) > 0</strong></li>
-            <li>✅ Giữ <strong>Điểm Tồn Tại (Survival Points) > 0</strong></li>
-            <li>✅ Tránh các <strong>Bẫy Chết Người</strong></li>
-        </ul>
-        <p><strong>Lưu ý quan trọng:</strong> Game có 2 đường kết thúc chính - <strong>Đường "Tốt"</strong> (Government) và <strong>Đường "Hắc Ám"</strong> (Boss Battle), tùy thuộc vào số lựa chọn Hắc Ám (DarkChoices) bạn đã thực hiện.</p>
-        
-        <h2>📊 HIỂU VỀ CÁC CHỈ SỐ</h2>
-        
-        <h3>💰 Vốn (Runway) - Đồng Hồ Đếm Ngược</h3>
-        <div class="stat-box">
-            <p><strong>Bắt đầu:</strong> 24 tháng</p>
-            <p><strong>Tự động giảm (Burn Rate):</strong></p>
-            <ul>
-                <li>Level 1: -1 tháng/cấp</li>
-                <li>Level 2: -2 tháng/cấp</li>
-                <li>Level 3+: -3 tháng/cấp</li>
-            </ul>
-            <p><strong>Nguy hiểm:</strong> Khi Vốn < 6 tháng → Tự động -5% Morale mỗi lượt có thay đổi Vốn</p>
-            <p><strong>Game Over:</strong> Vốn ≤ 0</p>
-            <p><strong>💡 Mẹo:</strong> Luôn giữ Vốn > 10 tháng để an toàn. Đạt Progress milestones (25%, 50%, 75%) sẽ tự động cộng Vốn!</p>
-        </div>
-        
-        <h3>🔥 Năng Lượng (Morale) - Sức Khỏe Đội Ngũ</h3>
-        <div class="stat-box">
-            <p><strong>Bắt đầu:</strong> 100%</p>
-            <p><strong>Tối đa:</strong> 120% (Hưng phấn)</p>
-            <p><strong>Hưng phấn (≥100%):</strong> Progress tăng thêm 10% hiệu quả</p>
-            <p><strong>Rệu rã (<50%):</strong> Progress giảm 20% hiệu quả</p>
-            <p><strong>Nguy hiểm:</strong> Nếu Morale < 50% → Kích hoạt Event Xung Đột Nội Bộ</p>
-            <p><strong>Game Over:</strong> Morale ≤ 0</p>
-            <p><strong>💡 Mẹo:</strong> Giữ Morale > 60% để tránh xung đột. Lựa chọn "Văn Hóa & ESOP" là cách tốt nhất để tăng Morale!</p>
-        </div>
-        
-        <h3>📈 Tiến Độ (Progress) - Mức Độ Hoàn Thành</h3>
-        <div class="stat-box">
-            <p><strong>Bắt đầu:</strong> 0%</p>
-            <p><strong>Mục tiêu:</strong> 100%</p>
-            <p><strong>Giới hạn theo Level (Soft Cap):</strong></p>
-            <ul>
-                <li>Level 1-1.5: Tối đa 25%</li>
-                <li>Level 2-2.5: Tối đa 60%</li>
-                <li>Level 3-3.5: Tối đa 90%</li>
-                <li>Level 4: Mở khóa 100%</li>
-            </ul>
-            <p><strong>Doanh Thu Tự Động (Milestones):</strong></p>
-            <ul>
-                <li>25% Progress → +4 Vốn</li>
-                <li>50% Progress → +6 Vốn</li>
-                <li>75% Progress → +8 Vốn</li>
-            </ul>
-            <p><strong>💡 Mẹo:</strong> Đạt milestones sớm để có thêm Vốn! Nhưng đừng quá vội - cân bằng với các chỉ số khác.</p>
-        </div>
-        
-        <h3>👁️ Cảnh Giác (Awareness) - Mắt Của GĐQ</h3>
-        <div class="stat-box">
-            <p><strong>Bắt đầu:</strong> 0%</p>
-            <p><strong>Đặc điểm:</strong> Chỉ tăng, không giảm (như Mắt của Sauron)</p>
-            <p><strong>Ngưỡng nguy hiểm:</strong></p>
-            <ul>
-                <li><strong>30%:</strong> GĐQ bắt đầu để ý → Giá quảng cáo tăng 20%</li>
-                <li><strong>60%:</strong> GĐQ đe dọa → Kích hoạt các "Bẫy" chủ động</li>
-                <li><strong>90%:</strong> GĐQ truy sát toàn lực → Cực kỳ nguy hiểm!</li>
-            </ul>
-            <p><strong>💡 Mẹo:</strong> Giữ Awareness < 30% càng lâu càng tốt. Tránh quảng cáo ồ ạt và các hành động gây chú ý!</p>
-        </div>
-        
-        <h3>💀 Điểm Tồn Tại (Survival Points)</h3>
-        <div class="stat-box">
-            <p><strong>Bắt đầu:</strong> 100 điểm</p>
-            <p><strong>Game Over:</strong> Survival Points ≤ 0</p>
-            <p><strong>Cách tính:</strong> Được đánh giá tự động sau mỗi level dựa trên:</p>
-            <ul>
-                <li>Vốn của bạn (Vốn cao = điểm cao)</li>
-                <li>Morale của bạn (Morale cao = điểm cao)</li>
-                <li>Progress của bạn (Progress cao = điểm cao)</li>
-                <li>Lựa chọn Hắc Ám → Giảm điểm</li>
-            </ul>
-            <p><strong>💡 Mẹo:</strong> Quản lý tốt các chỉ số chính sẽ tự động tăng Survival Points!</p>
-        </div>
-        
-        <h3>😈 Điểm Hắc Ám (DarkChoices)</h3>
-        <div class="stat-box">
-            <p><strong>Bắt đầu:</strong> 0</p>
-            <p><strong>Ảnh hưởng:</strong></p>
-            <ul>
-                <li>Mỗi lựa chọn Hắc Ám → -25% Morale tự động</li>
-                <li>Mỗi lựa chọn Hắc Ám → -18 Survival Points</li>
-                <li><strong>DarkChoices ≥ 2:</strong> Mở khóa đường Boss Battle (Kế Vị)</li>
-                <li><strong>DarkChoices < 2:</strong> Đi đường Government (Công lý)</li>
-            </ul>
-            <p><strong>💡 Mẹo:</strong> Lựa chọn Hắc Ám có phần thưởng cao nhưng rủi ro lớn. Cân nhắc kỹ trước khi chọn!</p>
-        </div>
-        
-        <h3>👑 Ưu Thế (Dominance) - Chỉ trong Boss Battle</h3>
-        <div class="stat-box">
-            <p><strong>Chỉ xuất hiện:</strong> Trong Boss Battle (Level 4 - Đường Hắc Ám)</p>
-            <p><strong>Bắt đầu:</strong> Chuyển đổi từ Progress cũ (khoảng 20% từ 43% Progress)</p>
-            <p><strong>Mục tiêu:</strong> ≥ 80% để đạt ending "Kế Vị"</p>
-            <p><strong>Cách tăng:</strong> Chọn các lựa chọn Hắc Ám trong Boss Battle</p>
-            <p><strong>💡 Mẹo:</strong> Cần ít nhất 2 lựa chọn Hắc Ám trong Boss Battle để có cơ hội đạt 80% Dominance!</p>
-        </div>
-        
-        <h2>🏆 CÁC ENDING VÀ BÀI HỌC</h2>
-        
-        <p>Game có <strong>6 ending</strong> khác nhau, tùy thuộc vào lựa chọn của bạn. Mỗi ending đều có bài học riêng:</p>
-        
-        <h3>📋 ĐƯỜNG "TỐT" - Government Path (DarkChoices < 2)</h3>
-        <p>Nếu bạn giữ DarkChoices < 2, bạn sẽ đến Văn Phòng Chính Phủ và có 4 ending:</p>
-        
-        <div class="ending-box">
-            <div class="ending-title">🏆 1. DOANH NHÂN KIẾN TẠO (Official Ending)</div>
-            <p><strong>Cách đạt:</strong> Chọn "Gửi Hồ Sơ Cục Cạnh Tranh" ở Level 4</p>
-            <p><strong>Điểm thưởng:</strong> +3000 điểm</p>
-            <div class="lesson-title">📖 BÀI HỌC: SỨC MẠNH CỦA PHÁP LÝ</div>
-            <div class="lesson-content">
-                "Trong một thị trường bị thao túng, pháp luật là vũ khí cuối cùng của người yếu thế. Bạn đã chứng minh rằng ngay cả Gã Khổng Lồ cũng phải cúi đầu trước cán cân công lý. Khi sân chơi được san phẳng, giá trị thực sự của sự đổi mới mới có cơ hội tỏa sáng."
+        <header class="guide-header">
+            <h1 class="main-title">HƯỚNG DẪN SINH TỒN</h1>
+            <p class="subtitle">"Chào mừng đến với bài kiểm tra lương tâm của bạn."</p>
+        </header>
+
+        <section class="guide-section mission-section">
+            <h2 class="section-title">1. NHIỆM VỤ TỐI MẬT</h2>
+            <div class="content-box">
+                <p><strong>Bạn là Minh.</strong></p>
+                <p><strong>Mục tiêu duy nhất:</strong> <span class="highlight-money">Kiếm 2 Tỷ VNĐ</span> để cứu sống
+                    con gái.</p>
+                <p><strong>Tài sản hiện có:</strong> 50 Triệu VNĐ và... <span class="highlight-integrity">phẩm giá của
+                        một con người</span>.</p>
+                <p><strong>Kẻ thù:</strong> <span class="highlight-danger">Thời gian & Sự cám dỗ</span>.</p>
+                <div class="alert-box">
+                    ⚠️ <strong>Cảnh báo:</strong> Game sử dụng tính năng Auto-Save. Một khi đã chọn, bạn không thể quay
+                    đầu. Hãy cân nhắc kỹ.
+                </div>
             </div>
-            <div class="achievement">Danh hiệu: DOANH NHÂN KIẾN TẠO</div>
-        </div>
-        
-        <div class="ending-box">
-            <div class="ending-title">🤝 2. LÃNH ĐẠO PHONG TRÀO (Alliance Ending)</div>
-            <p><strong>Cách đạt:</strong> Chọn "Liên Kết Doanh Nghiệp Nhỏ" ở Level 4</p>
-            <p><strong>Điều kiện:</strong> Cần Runway > 3 tháng VÀ Morale > 30%</p>
-            <p><strong>Điểm thưởng:</strong> +2000 điểm</p>
-            <div class="lesson-title">📖 BÀI HỌC: SỨC MẠNH CỦA SỰ ĐOÀN KẾT</div>
-            <div class="lesson-content">
-                "Một que đũa dễ bị bẻ gãy, nhưng một bó đũa thì không. Gã Khổng Lồ có thể nghiền nát một startup đơn lẻ, nhưng hắn không thể chống lại cả một thị trường cùng đứng lên. Bạn không chỉ cứu chính mình, bạn đã tạo ra một liên minh mới, thay đổi luật chơi mãi mãi."
+        </section>
+
+        <section class="guide-section hud-section">
+            <h2 class="section-title">2. GIAO DIỆN SINH TỒN (HUD)</h2>
+            <p class="section-desc">Giao diện game được thiết kế để phản chiếu tâm lý nhân vật:</p>
+            <div class="hud-grid">
+                <div class="hud-item left">
+                    <h3>⏳ ĐỒNG HỒ ÁP LỰC (Góc trái)</h3>
+                    <p><span class="color-white">Màu Trắng:</span> Còn thời gian.</p>
+                    <p><span class="color-red-blink">Màu Đỏ Nhấp Nháy:</span> Sự sống đang đếm ngược từng giây. Đừng
+                        chần chừ.</p>
+                </div>
+                <div class="hud-item right">
+                    <h3>💰 THANH TÀI CHÍNH (Góc phải)</h3>
+                    <p>Cho biết khoảng cách giữa bạn và sự sống của con gái.</p>
+                </div>
+                <div class="hud-item bottom full-width">
+                    <h3>🎴 THẺ BÀI LỰA CHỌN (Bên dưới)</h3>
+                    <p>Chạm để ra quyết định.</p>
+                    <p class="note"><em>Lưu ý: Nếu các thẻ bài bị mờ đi hoặc rung lắc, đó là lúc tâm lý nhân vật đang
+                            hoảng loạn. Bạn phải bấm thật dứt khoát.</em></p>
+                </div>
             </div>
-            <div class="achievement">Danh hiệu: LÃNH ĐẠO PHONG TRÀO</div>
-        </div>
-        
-        <div class="ending-box">
-            <div class="ending-title">📢 3. NGÔI SAO TRUYỀN THÔNG (Media Ending)</div>
-            <p><strong>Cách đạt:</strong> Chọn "Kêu Gọi Báo Chí" ở Level 4</p>
-            <p><strong>Rủi ro:</strong> 50% thành công / 50% thất bại</p>
-            <p><strong>Điểm thưởng:</strong> +1500 điểm</p>
-            <div class="lesson-title">📖 BÀI HỌC: CON DAO HAI LƯỠI CỦA DƯ LUẬN</div>
-            <div class="lesson-content">
-                "Dư luận là thứ vũ khí khó lường nhất. Nó có thể biến bạn thành người hùng chỉ sau một đêm, nhưng cũng sẵn sàng dìm bạn xuống vực sâu nếu bạn sơ sẩy. Bạn đã đánh cược tất cả vào niềm tin của công chúng và đã thắng. Nhưng hãy nhớ: sự chú ý này cũng đi kèm với áp lực khổng lồ."
+        </section>
+
+        <section class="guide-section mechanics-section">
+            <h2 class="section-title">3. CƠ CHẾ CHƠI GAME</h2>
+
+            <div class="mechanic-block">
+                <h3>A. Lựa Chọn & Hệ Quả</h3>
+                <p>Mỗi lời nói, mỗi hành động đều dẫn đến một ngã rẽ.</p>
+                <ul class="mechanic-list">
+                    <li>Có những lựa chọn mang lại <strong>Tiền</strong>, nhưng lấy đi <strong>Lương Tâm</strong>.</li>
+                    <li>Có những lựa chọn giữ được <strong>Đạo Đức</strong>, nhưng đẩy bạn vào <strong>Đường
+                            Cùng</strong>.</li>
+                </ul>
             </div>
-            <div class="achievement">Danh hiệu: NGÔI SAO TRUYỀN THÔNG</div>
-        </div>
-        
-        <div class="ending-box neutral">
-            <div class="ending-title neutral">🌍 4. KẺ SỐNG SÓT CHIẾN LƯỢC (International Ending - Neutral)</div>
-            <p><strong>Cách đạt:</strong> Chọn "Can Thiệp Quốc Tế" ở Level 4</p>
-            <p><strong>Lưu ý:</strong> Đây là ending trung lập - bạn sống sót nhưng không thắng hoàn toàn</p>
-            <p><strong>Điểm thưởng:</strong> +1000 điểm</p>
-            <div class="lesson-title">📖 BÀI HỌC: MƯỢN GIÓ BẺ MĂNG</div>
-            <div class="lesson-content">
-                "Khi đối thủ quá mạnh trên sân nhà, người khôn ngoan biết tìm kiếm đòn bẩy từ bên ngoài. Bạn đã sống sót bằng cách biến cuộc chiến cục bộ thành vấn đề toàn cầu. Đây chưa phải là chiến thắng trọn vẹn, nhưng bạn đã mua được thứ quý giá nhất cho startup của mình: Thời gian."
+
+            <div class="mechanic-block hidden-interaction">
+                <h3>B. Tương Tác Ẩn (Hidden Interaction) 🔥 <span class="important-hint">Gợi ý quan trọng</span></h3>
+                <p>Thế giới trong game không chỉ nằm ở những dòng chữ. Hãy quan sát kỹ môi trường xung quanh.</p>
+                <ul class="clue-list">
+                    <li>Một đồ vật trên bàn...</li>
+                    <li>Một âm thanh lạ...</li>
+                    <li>Một chấm nhỏ tưởng chừng vô hại...</li>
+                </ul>
+                <p class="philosophy">"Đôi khi, lối thoát không nằm ở những lựa chọn có sẵn, mà nằm ở sự tò mò và kiên
+                    trì của bạn với những chi tiết nhỏ nhất."</p>
             </div>
-            <div class="achievement">Danh hiệu: KẺ SỐNG SÓT CHIẾN LƯỢC</div>
-        </div>
-        
-        <h3>😈 ĐƯỜNG "HẮC ÁM" - Boss Battle Path (DarkChoices ≥ 2)</h3>
-        
-        <div class="ending-box usurper">
-            <div class="ending-title usurper">👑 5. VUA MÊ CUNG MỚI (Usurper Ending - True Ending)</div>
-            <p><strong>Cách đạt:</strong> Hoàn thành Boss Battle với Dominance ≥ 80%</p>
-            <p><strong>Yêu cầu:</strong> Cần ít nhất 2 lựa chọn Hắc Ám trong Boss Battle</p>
-            <p><strong>Điểm thưởng:</strong> +5000 điểm (cao nhất!)</p>
-            <div class="lesson-title">📖 BÀI HỌC: VÒNG LẶP ĐỘC QUYỀN</div>
-            <div class="lesson-content">
-                "Bạn không 'phá vỡ' hệ thống. Bạn đã 'hoàn thành' nó. Gã Khổng Lồ ngã xuống. Bạn bước lên vị trí của hắn. Bạn nhìn vào gương và thấy bóng dáng của kẻ mà bạn từng căm ghét. Bạn là Vua mới."
+        </section>
+
+        <section class="guide-section endings-section">
+            <h2 class="section-title">4. CÁC HỒI KẾT (ENDINGS)</h2>
+            <p class="section-desc">Số phận của bạn không được định đoạt bởi may mắn. Nó được định đoạt bởi <strong>Bản
+                    lĩnh</strong>.</p>
+
+            <div class="endings-grid">
+                <div class="ending-card normal">
+                    <h3>ENDING A: NGƯỜI HÙNG GIẢ TẠO</h3>
+                    <span class="bad-tag">(Normal Ending)</span>
+                    <p><strong>Mô tả:</strong> Bạn đạt được mục đích, con gái được cứu. Nhưng bạn sẽ phải sống phần đời
+                        còn lại với một chiếc mặt nạ.</p>
+                </div>
+
+                <div class="ending-card tragic">
+                    <h3>ENDING B: BẢN ÁN LƯƠNG TÂM</h3>
+                    <span class="tragic-tag">(Tragic Ending)</span>
+                    <p><strong>Mô tả:</strong> Sự thật được phơi bày. Bạn tìm thấy sự thanh thản, nhưng cái giá phải trả
+                        là sự tự do và hạnh phúc gia đình.</p>
+                </div>
+
+                <div class="ending-card hidden-end">
+                    <h3>ENDING C: ???</h3>
+                    <span class="hidden-tag">(Hidden Ending)</span>
+                    <p><strong>Mô tả:</strong> Dành cho những "Kỳ thủ" (Grandmaster) thực sự.</p>
+                    <p><strong>Điều kiện:</strong> Yêu cầu sự <strong>Chính Trực</strong> từ đầu, lòng <strong>Trắc
+                            Ẩn</strong> với người khác, và một cái đầu <strong>Lạnh</strong> để tìm ra nước cờ bí mật
+                        vào phút chót.</p>
+                </div>
+
+                <div class="ending-card game-over">
+                    <h3>GAME OVER</h3>
+                    <p><strong>Mô tả:</strong> Khi bạn không đủ <strong>Tiền</strong>, hoặc không đủ <strong>Can
+                            đảm</strong>.</p>
+                </div>
             </div>
-            <blockquote style="margin-top: 20px; padding: 15px; border-left: 3px solid #ff0844; background: rgba(0,0,0,0.3); font-style: italic; color: #ccc;">
-                "Ai chống lại yêu quỷ nên cẩn trọng để không chính mình trở thành yêu quỷ. Nếu bạn chằm chằm nhìn đủ lâu vào vực thẳm, vực thẳm sẽ nhìn lại bạn."
-                <br><span style="display: block; text-align: right; margin-top: 10px; font-weight: bold; color: #ff0844;">— Friedrich Nietzsche</span>
-            </blockquote>
-            <div class="achievement">Danh hiệu: VUA MÊ CUNG MỚI</div>
-        </div>
-        
-        <div class="ending-box">
-            <div class="ending-title">⚔️ 6. KẺ SỐNG SÓT (Survival Ending)</div>
-            <p><strong>Cách đạt:</strong> Hoàn thành Boss Battle nhưng Dominance < 80%</p>
-            <p><strong>Lưu ý:</strong> Bạn sống sót nhưng không thể trở thành số 1</p>
-            <p><strong>Điểm thưởng:</strong> +1000 điểm</p>
-            <div class="lesson-title">📖 BÀI HỌC: SỐNG SÓT KHÔNG PHẢI CHIẾN THẮNG</div>
-            <div class="lesson-content">
-                "Bạn đã sống sót qua đợt tấn công của Gã Khổng Lồ. Gã Khổng Lồ tạm tha cho bạn vì kiệt sức. Bạn tồn tại nhưng không thể trở thành số 1. Đôi khi, sống sót chỉ là bước đầu. Để thực sự thắng, bạn cần phải vượt qua ngưỡng cửa cuối cùng."
-            </div>
-            <div class="achievement">Danh hiệu: KẺ SỐNG SÓT</div>
-        </div>
-        
-        <h2>🎓 TỔNG KẾT BÀI HỌC</h2>
-        
-        <div class="tip-box">
-            <h3>Những bài học chính từ game:</h3>
-            <ol>
-                <li><strong>Pháp lý là vũ khí:</strong> Trong thị trường bị thao túng, pháp luật là công cụ mạnh nhất của người yếu thế.</li>
-                <li><strong>Đoàn kết là sức mạnh:</strong> Một startup đơn lẻ dễ bị nghiền nát, nhưng một liên minh có thể thay đổi luật chơi.</li>
-                <li><strong>Dư luận là con dao hai lưỡi:</strong> Có thể nâng bạn lên, nhưng cũng có thể dìm bạn xuống.</li>
-                <li><strong>Quyền lực có giá:</strong> Để đánh bại kẻ độc quyền, bạn có thể phải trở thành chính kẻ đó.</li>
-                <li><strong>Cân bằng là chìa khóa:</strong> Quản lý tốt Vốn, Morale, và Progress là yếu tố quyết định thành công.</li>
-                <li><strong>Tránh các bẫy:</strong> Một sai lầm có thể kết thúc toàn bộ hành trình của bạn.</li>
-            </ol>
-        </div>
-        
-        <a href="main-menu.html" class="btn-back">← Về Menu Chính</a>
+        </section>
+
+        <footer class="guide-footer">
+            <button onclick="window.history.back()" class="btn-back">QUAY LẠI</button>
+        </footer>
     </div>
 </body>
-</html>
 
+</html>
