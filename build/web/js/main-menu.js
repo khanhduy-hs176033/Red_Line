@@ -275,7 +275,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (guideBtn) {
         guideBtn.addEventListener('click', function () {
             console.log('Guide clicked');
-            // TODO: Show guide
+            window.location.href = './survival-guide.html';
         });
     }
 
