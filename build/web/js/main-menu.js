@@ -157,15 +157,6 @@ document.addEventListener('DOMContentLoaded', function () {
             // Navigate to game or load game scene
             window.location.href = './level1.html';
             console.log('Transitioning to game...');
-
-            // For now, just reset the overlay
-            // Remove this when implementing actual game transition
-            setTimeout(function () {
-                if (transitionOverlay) {
-                    transitionOverlay.classList.remove('active');
-                }
-                mainContainer.classList.remove('final-glitch');
-            }, 2000);
         }, 1500);
     }
 

@@ -157,162 +157,163 @@ document.addEventListener('DOMContentLoaded', function () {
             // Navigate to game or load game scene
             window.location.href = './level1.html';
             console.log('Transitioning to game...');
+        }, 1500);
+    }
 
+    // ============================================
+    // CITY BACKGROUND ANIMATION
+    // ============================================
 
-            // ============================================
-            // CITY BACKGROUND ANIMATION
-            // ============================================
+    function initCityCanvas() {
+        if (!cityCanvas) return;
 
-            function initCityCanvas() {
-                if (!cityCanvas) return;
+        const ctx = cityCanvas.getContext('2d');
 
-                const ctx = cityCanvas.getContext('2d');
+        // Set canvas size
+        function resizeCanvas() {
+            cityCanvas.width = window.innerWidth;
+            cityCanvas.height = window.innerHeight;
+        }
 
-                // Set canvas size
-                function resizeCanvas() {
-                    cityCanvas.width = window.innerWidth;
-                    cityCanvas.height = window.innerHeight;
-                }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
 
-                resizeCanvas();
-                window.addEventListener('resize', resizeCanvas);
+        // City buildings data
+        const buildings = [];
+        const numBuildings = 30;
 
-                // City buildings data
-                const buildings = [];
-                const numBuildings = 30;
+        for (let i = 0; i < numBuildings; i++) {
+            buildings.push({
+                x: Math.random() * window.innerWidth,
+                width: 30 + Math.random() * 80,
+                height: 100 + Math.random() * 300,
+                windowRows: 5 + Math.floor(Math.random() * 15),
+                windowCols: 2 + Math.floor(Math.random() * 4),
+                color: `rgba(${20 + Math.random() * 30}, ${10 + Math.random() * 20}, ${30 + Math.random() * 40}, 0.9)`
+            });
+        }
 
-                for (let i = 0; i < numBuildings; i++) {
-                    buildings.push({
-                        x: Math.random() * window.innerWidth,
-                        width: 30 + Math.random() * 80,
-                        height: 100 + Math.random() * 300,
-                        windowRows: 5 + Math.floor(Math.random() * 15),
-                        windowCols: 2 + Math.floor(Math.random() * 4),
-                        color: `rgba(${20 + Math.random() * 30}, ${10 + Math.random() * 20}, ${30 + Math.random() * 40}, 0.9)`
-                    });
-                }
+        // Animate city
+        function drawCity() {
+            // Clear canvas with gradient background
+            const gradient = ctx.createLinearGradient(0, 0, 0, cityCanvas.height);
+            gradient.addColorStop(0, '#0a0008');
+            gradient.addColorStop(0.5, '#1a0a12');
+            gradient.addColorStop(1, '#0d0d1a');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, cityCanvas.width, cityCanvas.height);
 
-                // Animate city
-                function drawCity() {
-                    // Clear canvas with gradient background
-                    const gradient = ctx.createLinearGradient(0, 0, 0, cityCanvas.height);
-                    gradient.addColorStop(0, '#0a0008');
-                    gradient.addColorStop(0.5, '#1a0a12');
-                    gradient.addColorStop(1, '#0d0d1a');
-                    ctx.fillStyle = gradient;
-                    ctx.fillRect(0, 0, cityCanvas.width, cityCanvas.height);
+            // Draw buildings
+            buildings.forEach(building => {
+                const bottomY = cityCanvas.height;
 
-                    // Draw buildings
-                    buildings.forEach(building => {
-                        const bottomY = cityCanvas.height;
+                // Building body
+                ctx.fillStyle = building.color;
+                ctx.fillRect(
+                    building.x,
+                    bottomY - building.height,
+                    building.width,
+                    building.height
+                );
 
-                        // Building body
-                        ctx.fillStyle = building.color;
-                        ctx.fillRect(
-                            building.x,
-                            bottomY - building.height,
-                            building.width,
-                            building.height
-                        );
+                // Windows
+                const windowWidth = building.width / (building.windowCols * 2 + 1);
+                const windowHeight = building.height / (building.windowRows * 2 + 1);
 
-                        // Windows
-                        const windowWidth = building.width / (building.windowCols * 2 + 1);
-                        const windowHeight = building.height / (building.windowRows * 2 + 1);
+                for (let row = 0; row < building.windowRows; row++) {
+                    for (let col = 0; col < building.windowCols; col++) {
+                        // Random window light
+                        const isLit = Math.random() > 0.3;
+                        if (isLit) {
+                            const windowX = building.x + windowWidth * (col * 2 + 1);
+                            const windowY = bottomY - building.height + windowHeight * (row * 2 + 1);
 
-                        for (let row = 0; row < building.windowRows; row++) {
-                            for (let col = 0; col < building.windowCols; col++) {
-                                // Random window light
-                                const isLit = Math.random() > 0.3;
-                                if (isLit) {
-                                    const windowX = building.x + windowWidth * (col * 2 + 1);
-                                    const windowY = bottomY - building.height + windowHeight * (row * 2 + 1);
-
-                                    ctx.fillStyle = Math.random() > 0.5
-                                        ? 'rgba(255, 200, 100, 0.8)'
-                                        : 'rgba(100, 200, 255, 0.6)';
-                                    ctx.fillRect(windowX, windowY, windowWidth, windowHeight);
-                                }
-                            }
+                            ctx.fillStyle = Math.random() > 0.5
+                                ? 'rgba(255, 200, 100, 0.8)'
+                                : 'rgba(100, 200, 255, 0.6)';
+                            ctx.fillRect(windowX, windowY, windowWidth, windowHeight);
                         }
-                    });
-
-                    // Draw red glow horizon line
-                    const horizonGradient = ctx.createLinearGradient(0, cityCanvas.height * 0.7, 0, cityCanvas.height);
-                    horizonGradient.addColorStop(0, 'transparent');
-                    horizonGradient.addColorStop(0.5, 'rgba(255, 0, 64, 0.2)');
-                    horizonGradient.addColorStop(1, 'rgba(255, 0, 64, 0.1)');
-                    ctx.fillStyle = horizonGradient;
-                    ctx.fillRect(0, cityCanvas.height * 0.7, cityCanvas.width, cityCanvas.height * 0.3);
-
-                    // Request next frame with slow update
-                    setTimeout(() => requestAnimationFrame(drawCity), 200);
-                }
-
-                drawCity();
-            }
-
-            initCityCanvas();
-
-            // ============================================
-            // SECONDARY BUTTON HANDLERS
-            // ============================================
-
-            if (optionsBtn) {
-                optionsBtn.addEventListener('click', function () {
-                    console.log('Options clicked');
-                    // TODO: Show options menu
-                });
-            }
-
-            if (leaderboardBtn) {
-                leaderboardBtn.addEventListener('click', function () {
-                    console.log('Leaderboard clicked');
-                    // TODO: Show leaderboard
-                });
-            }
-
-            if (guideBtn) {
-                guideBtn.addEventListener('click', function () {
-                    console.log('Guide clicked');
-                    // TODO: Show guide
-                });
-            }
-
-            // ============================================
-            // GLITCH TEXT RANDOMIZATION
-            // Occasionally randomize the glitch effect
-            // ============================================
-
-            const moralGlitch = document.querySelector('.moral-glitch');
-
-            if (moralGlitch) {
-                // Random intense glitch bursts
-                setInterval(function () {
-                    if (Math.random() > 0.7) {
-                        moralGlitch.style.animation = 'none';
-                        moralGlitch.offsetHeight; // Trigger reflow
-                        moralGlitch.style.animation = null;
                     }
-                }, 5000);
-            }
-
-            // ============================================
-            // KEYBOARD SHORTCUTS
-            // ============================================
-
-            document.addEventListener('keydown', function (e) {
-                switch (e.key) {
-                    case 'Enter':
-                    case ' ':
-                        if (startBtn) {
-                            startBtn.click();
-                        }
-                        break;
-                    case 'Escape':
-                        deactivateWaveringPsychology();
-                        break;
                 }
             });
 
-            console.log('Main Menu initialized - Wavering Psychology Effect ready');
+            // Draw red glow horizon line
+            const horizonGradient = ctx.createLinearGradient(0, cityCanvas.height * 0.7, 0, cityCanvas.height);
+            horizonGradient.addColorStop(0, 'transparent');
+            horizonGradient.addColorStop(0.5, 'rgba(255, 0, 64, 0.2)');
+            horizonGradient.addColorStop(1, 'rgba(255, 0, 64, 0.1)');
+            ctx.fillStyle = horizonGradient;
+            ctx.fillRect(0, cityCanvas.height * 0.7, cityCanvas.width, cityCanvas.height * 0.3);
+
+            // Request next frame with slow update
+            setTimeout(() => requestAnimationFrame(drawCity), 200);
+        }
+
+        drawCity();
+    }
+
+    initCityCanvas();
+
+    // ============================================
+    // SECONDARY BUTTON HANDLERS
+    // ============================================
+
+    if (optionsBtn) {
+        optionsBtn.addEventListener('click', function () {
+            console.log('Options clicked');
+            // TODO: Show options menu
         });
+    }
+
+    if (leaderboardBtn) {
+        leaderboardBtn.addEventListener('click', function () {
+            console.log('Leaderboard clicked');
+            // TODO: Show leaderboard
+        });
+    }
+
+    if (guideBtn) {
+        guideBtn.addEventListener('click', function () {
+            console.log('Guide clicked');
+            // TODO: Show guide
+        });
+    }
+
+    // ============================================
+    // GLITCH TEXT RANDOMIZATION
+    // Occasionally randomize the glitch effect
+    // ============================================
+
+    const moralGlitch = document.querySelector('.moral-glitch');
+
+    if (moralGlitch) {
+        // Random intense glitch bursts
+        setInterval(function () {
+            if (Math.random() > 0.7) {
+                moralGlitch.style.animation = 'none';
+                moralGlitch.offsetHeight; // Trigger reflow
+                moralGlitch.style.animation = null;
+            }
+        }, 5000);
+    }
+
+    // ============================================
+    // KEYBOARD SHORTCUTS
+    // ============================================
+
+    document.addEventListener('keydown', function (e) {
+        switch (e.key) {
+            case 'Enter':
+            case ' ':
+                if (startBtn) {
+                    startBtn.click();
+                }
+                break;
+            case 'Escape':
+                deactivateWaveringPsychology();
+                break;
+        }
+    });
+
+    console.log('Main Menu initialized - Wavering Psychology Effect ready');
+});
