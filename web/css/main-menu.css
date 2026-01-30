@@ -24,6 +24,7 @@ body {
     height: 100%;
     z-index: 0;
     background: linear-gradient(180deg, #0a0008 0%, #1a0a12 50%, #0d0d1a 100%);
+    pointer-events: none;
 }
 
 /* Heartbeat Line Effect */

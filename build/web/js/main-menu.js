@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Transition to game after animation
         setTimeout(function () {
             // Navigate to game or load game scene
-            // window.location.href = 'game.html';
+            window.location.href = './level1.html';
             console.log('Transitioning to game...');
 
             // For now, just reset the overlay
