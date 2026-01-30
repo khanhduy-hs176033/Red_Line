@@ -155,17 +155,9 @@ document.addEventListener('DOMContentLoaded', function () {
         // Transition to game after animation
         setTimeout(function () {
             // Navigate to game or load game scene
-            // window.location.href = 'game.html';
-            console.log('Transitioning to game...');
-
-            // For now, just reset the overlay
-            // Remove this when implementing actual game transition
-            setTimeout(function () {
-            // Navigate to game or load game scene
             window.location.href = 'level1.html';
             console.log('Transitioning to game...');
-        }, 1500);
-    }
+        
 
     // ============================================
     // CITY BACKGROUND ANIMATION
